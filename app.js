@@ -8,7 +8,11 @@ const register = require('./register');
 const admin = require('./admin');
 const applications = require('./applications');
 
-/* todo sækja stillingar úr env */
+const {
+  HOST: hostname= '127.0.0.1',
+  PORT: port = 3000,
+  SESSION_SECRET: sessionSecret,
+} = process.env;
 
 if (!sessionSecret) {
   console.error('Add SESSION_SECRET to .env');
@@ -58,8 +62,8 @@ function errorHandler(error, req, res, next) { // eslint-disable-line
 app.use(notFoundHandler);
 app.use(errorHandler);
 
-const hostname = '127.0.0.1';
-const port = 3000;
+/* const hostname = '127.0.0.1';
+const port = process.env.PORT || 3000; */
 
 app.listen(port, hostname, () => {
   console.info(`Server running at http://${hostname}:${port}/`);
