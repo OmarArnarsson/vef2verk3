@@ -8,7 +8,7 @@
     "setup": "node setup.js",
     "eslint": "eslint *.js",
     "test": "npm run eslint",
-    "start": "nodemon app.js"
+    "start": "node app.js"
   },
   "keywords": [],
   "author": "",
