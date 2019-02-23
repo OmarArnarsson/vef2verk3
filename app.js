@@ -162,6 +162,10 @@ const {
   PORT: port = 3000,
 } = process.env;
 
+process.on('uncaughtException', (err) => {
+  console.error(err);
+});
+
 
 app.listen(port, () => {
   console.info(`Server running at http://${hostname}:${port}/`);
