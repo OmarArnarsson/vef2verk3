@@ -14,7 +14,7 @@ const register = require('./register');
 const admin = require('./admin');
 const applications = require('./applications');
 
-const sessionSecret = process.env.SESSION_SECRET;
+const sessionSecret = process.env.SESSION_SECRET || 'bibbalibbi';
 
 const app = express();
 
