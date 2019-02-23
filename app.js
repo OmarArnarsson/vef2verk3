@@ -104,7 +104,7 @@ app.locals.isInvalid = isInvalid;
 app.post(
   '/innskra',
   passport.authenticate('local', {
-    failureMessage: 'Notandi eða lykilorð vitlaust',
+    /* failureMessage: 'Notandi eða lykilorð vitlaust', */
     failureRedirect: '/innskra',
   }),
   (req, res) => {
