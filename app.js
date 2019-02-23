@@ -14,7 +14,7 @@ const register = require('./register');
 const admin = require('./admin');
 const applications = require('./applications');
 
-const sessionSecret = process.env.SESSION_SECRET || 'bibbalibbi';
+const sessionSecret = process.env.SESSION_SECRET;
 
 const app = express();
 
@@ -161,11 +161,6 @@ const {
   HOST: hostname = '127.0.0.1',
   PORT: port = 3000,
 } = process.env;
-
-process.on('uncaughtException', (err) => {
-  console.error(err);
-});
-
 
 app.listen(port, () => {
   console.info(`Server running at http://${hostname}:${port}/`);
