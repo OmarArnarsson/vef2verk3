@@ -1,0 +1,61 @@
+<%- include('header') -%>
+
+    <header>
+        <div class="header">
+          <div class="links">
+            <% if(!locals.user){ %>
+              <a href="/">Atvinnuumsókn</a>
+              <a href="/innskra">Innskráning</a> 
+              <a href="/register">Nýskráning</a>
+            <% } else{ %>  
+              <a href="/">Atvinnuumsókn</a>
+              <a href="/applications">Umsóknir</a> 
+              <a href="/admin" style="font-weight: bold; text-decoration: underline;">Notendur</a> 
+            <% } %>
+          </div>
+          <div class="logout_user">
+            <p><%= locals.username %></p>
+            <a href="/logout">Útskrá</a>
+          </div>
+        </div>
+      </header>
+      <main>
+
+<h1>Notendur</h1>
+
+<div class="table_user">
+  <% if (list.length === 0) { %>
+    <p>Engir notendur.</p>
+  <% } %>
+
+  <table>
+    <tr>
+      <th>Stjórnandi</th>
+      <th>Notendanafn</th>
+      <th>Nafn</th>
+      <th>Netfang</th>
+    </tr>
+      <% list.forEach((user) => { %>
+        <tr>
+            <td>
+                <% if (user.admin) { %>
+                <p>ja</p>
+                <% } %>
+            </td>
+            <td>
+                <%= user.username %>
+            </td>
+            <td>
+                <%= user.name %>
+            </td>
+            <td>
+                <%= user.email %>
+            </td>
+        </tr>
+      <% }); %>
+    
+  </table> 
+</div>
+
+
+<%- include('footer') -%>

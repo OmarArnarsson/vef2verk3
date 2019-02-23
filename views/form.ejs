@@ -1,5 +1,26 @@
 <%- include('header') -%>
 
+<header>
+    <div class="header">
+      <div class="links">
+        <% if(!locals.user){ %>
+          <a href="/">Atvinnuumsókn</a>
+          <a href="/innskra">Innskráning</a> 
+          <a href="/register">Nýskráning</a>
+        <% } else{ %>  
+          <a href="/">Atvinnuumsókn</a>
+          <a href="/applications">Umsóknir</a> 
+          <a href="/admin">Notendur</a> 
+        <% } %>
+      </div>
+      <div class="logout_user">
+        <p><%= locals.username %></p>
+        <a href="/logout">Útskrá</a>
+      </div>
+    </div>
+  </header>
+  <main>
+
 <h1>Atvinnuumsókn</h1>
 
 <form method="post" action="/">

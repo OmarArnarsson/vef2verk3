@@ -9,7 +9,7 @@ VALUES ('Guðmunda Guðmundsdóttir','gudmunda@example.org',1111111,'Aenean a ni
 INSERT INTO applications (name,email,phone,text,job) 
 VALUES ('John Johnson','john@example.org',1000000,'Etiam accumsan neque nec mauris fringilla, id dignissim tortor maximus. Proin sit amet sodales felis. Vivamus ut est magna. Quisque porta quam ac orci dignissim convallis. Nunc efficitur sagittis felis at gravida. Praesent quis quam molestie, rutrum mi sed, malesuada nisi. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse felis tortor, imperdiet in metus eget, bibendum aliquet nisl.','verkefnastjóri');
 
-INSERT INTO users (name,email,userid,password,admin)
-VALUES ('Admin','admin@example.org','admin','asdfasdf',true);
-INSERT INTO users (name,email,userid,password)
-VALUES ('nn','nn@example.org','nn','12341234');
+INSERT INTO users (name,email,username,password,admin)
+VALUES ('Admin','admin@example.org','admin','$2y$11$STtmK4IAZ8NBG2.L/AR66ud8G29SftFuLM3JS39NbgpJAV.Qo6wa6',true);
+INSERT INTO users (name,email,username,password)
+VALUES ('nn','nn@example.org','nn','$2y$11$sWhT9CsnuH.94yOne.htqOWYKcXeoX2ksZnJwCrAwrsjU7LxSDXLK');

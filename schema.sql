@@ -11,9 +11,10 @@ CREATE TABLE applications (
 );
 
 CREATE TABLE users (
+  id serial primary key,
   name varchar(64) not null,
   email varchar(64) not null,
-  userid varchar(64) not null,
+  username varchar(64) not null,
   password varchar(64) not null,
   admin boolean default false
 );

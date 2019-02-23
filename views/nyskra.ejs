@@ -1,0 +1,61 @@
+<%- include('header') -%>
+
+<header>
+    <div class="header">
+      <div class="links">
+        <% if(!locals.user){ %>
+          <a href="/">Atvinnuumsókn</a>
+          <a href="/innskra">Innskráning</a> 
+          <a href="/register" style="font-weight: bold; text-decoration: underline;">Nýskráning</a>
+        <% } else{ %>  
+          <a href="/">Atvinnuumsókn</a>
+          <a href="/applications">Umsóknir</a> 
+          <a href="/admin">Notendur</a> 
+        <% } %>
+      </div>
+      <div class="logout_user">
+        <p><%= locals.username %></p>
+        <a href="/logout">Útskrá</a>
+      </div>
+    </div>
+  </header>
+  <main>
+
+<h1>Nýskráning</h1>
+
+<form method="post" action="/register">
+  <div class="field<%= locals.isInvalid('name', errors) ?  ' field--invalid' : '' %>">
+    <label for="name">Nafn</label>
+    <input type="text" name="name" id="name" value="<%= name %>" class="">
+  </div>
+  <div class="field<%= locals.isInvalid('email', errors) ?  ' field--invalid' : '' %>">
+    <label for="email">Netfang</label>
+    <input type="text" name="email" id="email" value="<%= email %>" class="">
+  </div>
+  <div class="field<%= locals.isInvalid('username', errors) ?  ' field--invalid' : '' %>">
+    <label for="username">Notendanafn</label>
+    <input type="text" name="username" id="username" value="<%= username %>" class="">
+  </div>
+  <div class="field<%= locals.isInvalid('password', errors) ?  ' field--invalid' : '' %>">
+    <label for="password">Lykilorð</label>
+    <input type="password" name="password" id="password" value="<%= password %>" class="">
+  </div>
+  <div class="field<%= locals.isInvalid('password2', errors) ?  ' field--invalid' : '' %>">
+    <label for="password2">Lykilorð, aftur</label>
+    <input type="password" name="password2" id="password2" value="<%= password2 %>" class="">
+  </div>
+  <!-- Setja inn password2? sem er sanatized en ekki sett í töflu -->
+
+  <% if (errors.length > 0) { %>
+    <h2>Vandræði við að skrá notanda:</h2>
+    <ul class="errors">
+      <% errors.forEach((error) => { %>
+        <li class="error"><label for="<%= error.param %>"><%= error.msg %></label></li>
+      <% }); %>
+    </ul>
+  <% } %>
+
+  <button>Skrá notanda</button>
+</form>
+
+<%- include('footer') -%>

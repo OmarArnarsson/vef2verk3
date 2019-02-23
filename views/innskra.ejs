@@ -1,0 +1,38 @@
+<%- include('header') -%>
+
+<header>
+    <div class="header">
+      <div class="links">
+        <% if(!locals.user){ %>
+          <a href="/">Atvinnuumsókn</a>
+          <a href="/innskra"style="font-weight: bold; text-decoration: underline;">Innskráning</a> 
+          <a href="/register">Nýskráning</a>
+        <% } else{ %>  
+          <a href="/">Atvinnuumsókn</a>
+          <a href="/applications">Umsóknir</a> 
+          <a href="/admin">Notendur</a> 
+        <% } %>
+      </div>
+      <div class="logout_user">
+        <p><%= locals.username %></p>
+        <a href="/logout">Útskrá</a>
+      </div>
+    </div>
+  </header>
+  <main>
+
+<form method="post" action="/innskra">
+    <div class="field">
+      <label for="username">Notendanafn:</label>
+      <input type="text" name="username" id="username" value="<%= username %>" class="">
+    </div>
+    <div class="field">
+      <label for="password">Lykilorð:</label>
+      <input type="password" name="password" id="password" value="<%= password %>" class="">
+    </div>
+    <button type="submit">
+      Innskrá
+    </button>
+</form>
+
+<%- include('footer') -%>
