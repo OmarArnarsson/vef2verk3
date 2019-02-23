@@ -47,12 +47,14 @@
             </form>
           <% } %>
         </div>
+        <% if (locals.isAdmin) { %>
         <div class="delete">
           <form method="post" action="/applications/delete">
             <input type="hidden" name="id" value="<%= application.id %>">
             <button>Eyða umsókn</button>
           </form>
         </div>
+        <% } %>
       </div>
     </div>
   <% }); %>

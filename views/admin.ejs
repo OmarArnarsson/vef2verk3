@@ -30,18 +30,24 @@
 
   <table>
     <tr>
-      <th>Stjórnandi</th>
+      <% if (locals.isAdmin) { %>
+        <th>Stjórnandi</th>
+      <% } %>
       <th>Notendanafn</th>
       <th>Nafn</th>
       <th>Netfang</th>
     </tr>
       <% list.forEach((user) => { %>
         <tr>
+            <% if (locals.isAdmin) { %>
             <td>
-                <% if (user.admin) { %>
-                <p>ja</p>
+                <% if(user.admin){ %>
+                  <input type="checkbox" checked>
+                <% } else{ %>  
+                  <input type="checkbox">
                 <% } %>
             </td>
+            <% } %>
             <td>
                 <%= user.username %>
             </td>
